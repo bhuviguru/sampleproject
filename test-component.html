@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InputField Component Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+        }
+        .test-section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .input-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .input-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+        input {
+            width: 100%;
+            padding: 0.625rem 0.875rem;
+            border: 2px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.2s ease-in-out;
+        }
+        input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        input:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            background-color: #f3f4f6;
+        }
+        .input--filled {
+            border-color: transparent;
+            background-color: #f9fafb;
+        }
+        .input--ghost {
+            border-color: transparent;
+            background-color: transparent;
+        }
+        .input--sm {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+        }
+        .input--lg {
+            padding: 0.75rem 1rem;
+            font-size: 1.125rem;
+        }
+        .input--invalid {
+            border-color: #dc2626;
+        }
+        .input--invalid:focus {
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+        }
+        .helper-text {
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+        .error-text {
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: #dc2626;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>InputField Component Test</h1>
+        <p>This is a simple test to verify the InputField component styling and variants work correctly.</p>
+        
+        <div class="test-section">
+            <h3>Basic Input Fields</h3>
+            <div class="input-row">
+                <div class="input-group">
+                    <label>Basic Input</label>
+                    <input type="text" placeholder="Enter some text...">
+                    <div class="helper-text">This is a basic input field</div>
+                </div>
+                <div class="input-group">
+                    <label>With Helper Text</label>
+                    <input type="text" placeholder="Enter your email">
+                    <div class="helper-text">We'll never share your email with anyone else</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>Input Variants</h3>
+            <div class="input-row">
+                <div class="input-group">
+                    <label>Outlined Variant (Default)</label>
+                    <input type="text" placeholder="Outlined style">
+                </div>
+                <div class="input-group">
+                    <label>Filled Variant</label>
+                    <input type="text" class="input--filled" placeholder="Filled style">
+                </div>
+                <div class="input-group">
+                    <label>Ghost Variant</label>
+                    <input type="text" class="input--ghost" placeholder="Ghost style">
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>Input Sizes</h3>
+            <div class="input-row">
+                <div class="input-group">
+                    <label>Small Size</label>
+                    <input type="text" class="input--sm" placeholder="Small input">
+                </div>
+                <div class="input-group">
+                    <label>Medium Size (Default)</label>
+                    <input type="text" placeholder="Medium input">
+                </div>
+                <div class="input-group">
+                    <label>Large Size</label>
+                    <input type="text" class="input--lg" placeholder="Large input">
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>Input States</h3>
+            <div class="input-row">
+                <div class="input-group">
+                    <label>Disabled Input</label>
+                    <input type="text" value="Disabled input" disabled>
+                    <div class="helper-text">This input is disabled</div>
+                </div>
+                <div class="input-group">
+                    <label>Invalid Input</label>
+                    <input type="text" class="input--invalid" value="Invalid input">
+                    <div class="error-text">This field has an error</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>Complex Examples</h3>
+            <div class="input-row">
+                <div class="input-group">
+                    <label>Email with Validation</label>
+                    <input type="email" class="input--filled input--lg" placeholder="Enter your email address">
+                    <div class="helper-text">Please enter a valid email address</div>
+                </div>
+                <div class="input-group">
+                    <label>Required Field</label>
+                    <input type="text" placeholder="This field is required">
+                    <div class="helper-text">This field must be filled out</div>
+                </div>
+                <div class="input-group">
+                    <label>Ghost Variant Small</label>
+                    <input type="text" class="input--ghost input--sm" placeholder="Small ghost input">
+                    <div class="helper-text">This is a small ghost variant</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
